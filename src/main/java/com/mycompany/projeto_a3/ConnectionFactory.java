@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
     
     public String usuario ="root";
-    public String URL = "jdbc:mysql://localhost:3306/db_pessoas?useTimezone=true&serverTimezone=UTC";
+    public String URL = "jdbc:mysql://localhost:3306/db_cadastro?useTimezone=true&serverTimezone=UTC";
     public String senha ="coutti0803";
     
     public Connection conexao(){
