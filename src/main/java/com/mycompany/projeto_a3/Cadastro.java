@@ -6,6 +6,20 @@ import java.sql.PreparedStatement;
 
 
 public class Cadastro {
+
+    /**
+     * @return the compleEndeClint
+     */
+    public String getCompleEndeClint() {
+        return compleEndeClint;
+    }
+
+    /**
+     * @param compleEndeClint the compleEndeClint to set
+     */
+    public void setCompleEndeClint(String compleEndeClint) {
+        this.compleEndeClint = compleEndeClint;
+    }
     private int codigo;
     private String nomeClint;
     private String emailClint;
@@ -15,6 +29,7 @@ public class Cadastro {
     private String numEndeClint;
     private String telClint;
     private String senhaClint;
+    private String compleEndeClint;
     private String confirmSenha;
     
     public void CriarCadastro(){
@@ -121,20 +136,21 @@ public class Cadastro {
         this.confirmSenha = confirmSenha;
     }
     public void inserir(){
-        String sql = "INSERT INTO tb_cadastro (nomeClint, telClint, emailClint, dataNasc, cepClint, numEndeClint,cpfClint) VALUE (?,?,?)";
+        String sql = "INSERT INTO tb_cadastro (nomeClint, telClint, emailClint, dataNasc, cepClint, numEndClint, compleEndeClint, cpfClint) VALUE (?,?,?,?,?,?,?,?)";
         ConnectionFactory factory = new ConnectionFactory();  
         try(Connection c = factory.obtemConexao ()){
             PreparedStatement ps = c.prepareStatement (sql);
-            ps.setString(1, nomeClint);
-            ps.setString (2,telClint);
-            ps.setString(3, emailClint);
-            ps.setString(4, dataNasc);        
-            ps.setString(5, cpfClint);
-            ps.setString(6, cepClint);
-            ps.setString(7, numEndeClint);  
-         
+            ps.setString(1, getNomeClint());
+            ps.setString(2,getTelClint());
+            ps.setString(3, getEmailClint());
+            ps.setString(4, getDataNasc());        
+            ps.setString(5, getcepClint());
+            ps.setString(6, getNumEndeClint());  
+            ps.setString(7, getCompleEndeClint());  
+            ps.setString(8, getCpfClint());
             ps.execute();
         }catch(Exception e){
+            e.printStackTrace();
         }
     }
 
