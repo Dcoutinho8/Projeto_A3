@@ -7,21 +7,20 @@ import java.sql.SQLException;
 
 
 public class ConnectionFactory {
-     private String usuario = "root";
-     private String senha = "coutti0803";
-     private String host = "localhost"; 
-     private String porta = "3306";
-     private String bd = "db_cadastro";
-     
-     public Connection obtemConexao (){ 
-         try{ 
-             //"jbdc:mysql://localhost:3306/db_cadastro
-             Connection c = DriverManager.getConnection("jdbc:mysql://" + host + ":" + porta + "/" + bd , usuario, senha);
-                return c;
-            }catch(SQLException e){ 
-                return null;  
-            }
-         
-        }
     
+    public String usuario ="root";
+    public String URL = "jdbc:mysql://localhost:3306/db_pessoas?useTimezone=true&serverTimezone=UTC";
+    public String senha ="coutti0803";
+    
+    public Connection conexao(){
+        try {
+            Connection con = DriverManager.getConnection(URL,usuario,senha);
+          
+            System.out.println(con);
+            return con;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return  null;
+        }
+    }
 }
