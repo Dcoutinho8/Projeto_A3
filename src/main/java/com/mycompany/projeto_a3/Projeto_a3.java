@@ -19,6 +19,7 @@ public class Projeto_a3 {
                     String dataNasci = JOptionPane.showInputDialog("Qual a sua data de nascimento?");
                     String cep = JOptionPane.showInputDialog("Qual é o CEP?");
                     String numeroEndereco = JOptionPane.showInputDialog("Qual é o numero do seu endereço?");
+                    String complementoEndereco = JOptionPane.showInputDialog("Complemento da sua residencia ?");
                     String cpf = JOptionPane.showInputDialog("Informe o seu CPF?");
                     Cadastro c = new Cadastro ();
                     c.setNomeClint(nome);
@@ -27,9 +28,10 @@ public class Projeto_a3 {
                     c.setDataNasc(dataNasci);
                     c.setcepClint(cep);
                     c.setNumEndeClint(numeroEndereco);
+                    c.setCompleEndeClint(complementoEndereco);
                     c.setCpfClint(cpf);
+                    c.inserir ();                                     
                     
-                    c.inserir ();
                     break;
                 }
                 case 2:

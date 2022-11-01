@@ -136,9 +136,9 @@ public class Cadastro {
         this.confirmSenha = confirmSenha;
     }
     public void inserir(){
-        String sql = "INSERT INTO tb_cadastro (nomeClint, telClint, emailClint, dataNasc, cepClint, numEndClint, compleEndeClint, cpfClint) VALUE (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tb_cadastro (nomeClint, telClint, emailClint, dataNasc, cepClint, numEndeClint, compleEndeClint, cpfClint) VALUE (?,?,?,?,?,?,?,?)";
         ConnectionFactory factory = new ConnectionFactory();  
-        try(Connection c = factory.obtemConexao ()){
+        try(Connection c = factory.conexao()){
             PreparedStatement ps = c.prepareStatement (sql);
             ps.setString(1, getNomeClint());
             ps.setString(2,getTelClint());
